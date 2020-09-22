@@ -24,7 +24,11 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
+  },
+  toolbar: {
+    backgroundColor: "#0c2340",
+    color: "#fff"
   },
   grow: {
     flexGrow: 1,
@@ -42,15 +46,19 @@ function App() {
     setValue(newValue);
   };
 
+  function homeClicked(e) {
+    setValue(false);
+  }
+
   return (
       <div className="App">
         <header className="App-header" className={classes.root}>
           <AppBar position="static">
-            <Toolbar>
+            <Toolbar className={classes.toolbar}>
               <SvgIcon component={logoIcon} viewBox="200 -70 700 700" height="100%"/>
-              <Typography variant="h6" className={classes.title}>
+              <Button variant="h6" color="inherit" className={classes.title} onClick={homeClicked}>
                 Cardboard Tracker
-              </Typography>
+              </Button>
               <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                 <Tab label="CHARTS" {...a11yProps(0)} />
                 <Tab label="MY CARDS" {...a11yProps(1)} />

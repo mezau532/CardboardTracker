@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import Ebay from 'ebay-node-api';
 import { ReactComponent as logoIcon } from './logo.svg';
 import './App.css';
 import AppBar from "@material-ui/core/AppBar";
@@ -11,8 +11,10 @@ import Tab from "@material-ui/core/Tab";
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-import Icon from "@material-ui/core/Icon";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import HomePage from "./Home";
+import ChartsPage from "./Charts";
+import MyCardsPage from "./MyCards";
 
 function a11yProps(index) {
   return {
@@ -40,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -60,8 +62,8 @@ function App() {
                 Cardboard Tracker
               </Button>
               <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                <Tab label="CHARTS" {...a11yProps(0)} />
-                <Tab label="MY CARDS" {...a11yProps(1)} />
+                <Tab tabIndex={1} label="CHARTS" {...a11yProps(1)} />
+                <Tab tabIndex={2} label="MY CARDS" {...a11yProps(2)} />
               </Tabs>
               <div className={classes.grow}/>
               <Button color="inherit">Login</Button>
@@ -69,12 +71,14 @@ function App() {
             </Toolbar>
           </AppBar>
           <TabPanel value={value} index={0}>
-            Item One
+            <ChartsPage/>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Item Two
+            <MyCardsPage visi/>
           </TabPanel>
-          <img src={logo} className="App-logo" alt="logo"/>
+          <div hidden={value !== false}>
+            <HomePage/>
+          </div>
         </header>
       </div>
   );

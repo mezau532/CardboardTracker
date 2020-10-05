@@ -1,5 +1,4 @@
 import React from 'react';
-import Ebay from 'ebay-node-api';
 import { ReactComponent as logoIcon } from './logo.svg';
 import './App.css';
 import AppBar from "@material-ui/core/AppBar";
@@ -9,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
 import SvgIcon from "@material-ui/core/SvgIcon";
 import HomePage from "./Home";
@@ -26,6 +25,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width: '100%',
     backgroundColor: theme.palette.background.paper
   },
   toolbar: {
@@ -58,7 +58,7 @@ function App() {
           <AppBar position="static">
             <Toolbar className={classes.toolbar}>
               <SvgIcon component={logoIcon} viewBox="200 -70 700 700" height="100%"/>
-              <Button variant="h6" color="inherit" className={classes.title} onClick={homeClicked}>
+              <Button color="inherit" className={classes.title} onClick={homeClicked}>
                 Cardboard Tracker
               </Button>
               <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
@@ -96,9 +96,11 @@ function TabPanel(props) {
           {...other}
       >
         {value === index && (
-            <Box p={3}>
-              <Typography>{children}</Typography>
-            </Box>
+            <Container>
+              <Box>
+                {children}
+              </Box>
+            </Container>
         )}
       </div>
   );

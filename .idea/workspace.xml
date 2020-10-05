@@ -21,6 +21,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -45,6 +46,8 @@
       <option name="presentableId" value="Default" />
       <updated>1600480848942</updated>
       <workItem from="1600480851798" duration="3437000" />
+      <workItem from="1601345625749" duration="600000" />
+      <workItem from="1601678051346" duration="34806000" />
     </task>
     <servers />
   </component>
@@ -56,7 +59,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
